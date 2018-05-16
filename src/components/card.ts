@@ -177,8 +177,14 @@ export class CardComponent implements OnInit, OnDestroy {
           (this.releaseRadius.y < event.deltaY || this.releaseRadius.y * -1 > event.deltaY))
       ) {
         if (this.onRelease) {
-          this.released = true;
-          this.onRelease.emit(event);
+            //this.released = true;
+            this.onRelease.emit(event);
+            this.translate({
+                x: 0,
+                y: 0,
+                rotate: 0,
+                time: 0.2
+            });
         }
       } else {
         this.onAbortCb(event);
